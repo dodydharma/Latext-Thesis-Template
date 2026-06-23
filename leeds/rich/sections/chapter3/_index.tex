@@ -1,0 +1,55 @@
+\chapter{Methodology}
+\label{ch:methodology}
+
+This chapter demonstrates equations and tables -- the two things methodology
+chapters use most.
+
+\section{Equations}
+\label{sec:equations}
+
+% A numbered, labelled display equation. Refer to it with \ref.
+The governing relationship is given in Equation~\ref{eq:example}:
+\begin{equation}
+    E = mc^2 .
+    \label{eq:example}
+\end{equation}
+
+% An UNnumbered display equation uses \[ ... \].
+The mean of $n$ samples is
+\[
+    \bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i .
+\]
+
+% Several aligned lines use the align environment from amsmath. The &
+% marks the alignment point; \\ ends each line. Each line can have its
+% own \label.
+\begin{align}
+    a &= b + c, \label{eq:line1}\\
+    d &= e - f. \label{eq:line2}
+\end{align}
+
+Equations~\ref{eq:line1} and~\ref{eq:line2} can be referenced individually.
+
+\section{Experimental Setup}
+\label{sec:setup}
+
+% A basic table. Column types: l (left), c (centre), r (right).
+% "|" draws vertical rules and \hline draws horizontal rules.
+% Convention: table captions go ABOVE the table. Always add a \label
+% and refer to the table with \ref (e.g. Table~\ref{tab:setup}).
+Table~\ref{tab:setup} summarises the configuration used in the experiments.
+
+\begin{table}[h]
+    \centering
+    \caption{Example experimental configuration.}
+    \label{tab:setup}
+    \begin{tabular}{|l|c|r|}
+        \hline
+        \textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\ \hline
+        Learning rate      & $\eta$          & 0.001          \\ \hline
+        Batch size         & $B$             & 64             \\ \hline
+        Epochs             & $N$             & 200            \\ \hline
+    \end{tabular}
+\end{table}
+
+\lipsum[7]

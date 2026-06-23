@@ -1,0 +1,149 @@
+% =====================================================================
+%  PhD / Master's Thesis Template
+% ---------------------------------------------------------------------
+%  Adapted from the thesis of Dody Dharma (University of Leeds) and
+%  generalised into a reusable template for students.
+%
+%  HOW TO USE THIS TEMPLATE
+%    1. Edit thesis-metadata.tex (title, author, supervisors, ...).
+%    2. Replace the placeholder text in sections/ with your own writing.
+%    3. Put your figures in figures/ and your logo in assets/.
+%    4. Add your references to references.bib.
+%    5. Compile (see README.md). On Overleaf: set this as the Main
+%       document and press Recompile. Locally:
+%           pdflatex main  ->  bibtex main  ->  pdflatex main  ->  pdflatex main
+%
+%  EDITION: generic branding, rich worked examples.
+%  The chapters in sections/ contain commented, worked examples of the
+%  LaTeX you will need (figures, tables, equations, citations, lists,
+%  code listings). Read the % comments, then replace the body text.
+% =====================================================================
+
+\documentclass[11pt,twoside]{book}
+
+% ---------------------------------------------------------------------
+%  Line spacing. 1.4 is roughly "one-and-a-half". Many universities
+%  require 1.5 or double spacing for the main text -- check your own
+%  thesis regulations and adjust this value.
+% ---------------------------------------------------------------------
+\renewcommand{\baselinestretch}{1.4}
+
+% ---------------------------------------------------------------------
+%  Packages
+% ---------------------------------------------------------------------
+\usepackage[T1]{fontenc}          % modern font encoding (better hyphenation)
+\usepackage[utf8]{inputenc}       % allow UTF-8 characters in the source
+
+\usepackage{datetime}             % custom date format used on the title page
+\newdateformat{monthyear}{\monthname[\THEMONTH], \THEYEAR}
+
+% Page margins. The wider left margin (4cm) leaves room for binding.
+\usepackage[left=4cm,right=2cm,top=2.5cm,bottom=2cm,includehead,includefoot]{geometry}
+
+\usepackage[toc,page]{appendix}   % nicer "Appendices" handling
+\usepackage{graphicx}             % \includegraphics for figures
+\usepackage{natbib}               % author-year citations: \citet, \citep
+\usepackage{lipsum}               % dummy "Lorem ipsum" text -- delete in real use
+\usepackage{caption}              % customise figure/table captions
+\usepackage{subcaption}           % side-by-side subfigures / subtables
+\usepackage{amsmath}              % maths environments (align, etc.)
+\usepackage{amssymb}              % extra maths symbols
+\usepackage{listings}             % typeset source code
+\usepackage{array, colortbl, xcolor} % table extras and colour
+\usepackage{adjustbox}            % scale/clip boxes and wide tables
+\usepackage{tikz}                 % vector graphics drawn in LaTeX
+\usepackage{longtable}            % tables that span several pages
+\usepackage{float}                % the [H] "place exactly here" specifier
+\usepackage{hyperref}             % clickable links and cross-references
+
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+% Show down to subsubsections in the table of contents
+\setcounter{tocdepth}{3}
+
+% Caption styling: bold "Figure"/"Table" label, small italic body text
+\captionsetup[figure]{margin=1.5cm,font=small,labelfont={bf},name={Figure},labelsep=colon,textfont={it}}
+\captionsetup[table]{margin=1.5cm,font=small,labelfont={bf},name={Table},labelsep=colon,textfont={it}}
+
+% Coloured (rather than boxed) hyperlinks
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=blue, urlcolor=blue}
+
+% A readable default style for source-code listings
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red!60!black},
+  numbers=left, numberstyle=\tiny\color{gray},
+  frame=single, breaklines=true, showstringspaces=false
+}
+
+% ---------------------------------------------------------------------
+%  Thesis metadata (title, author, ...). Edit thesis-metadata.tex,
+%  NOT this file, to set them.
+% ---------------------------------------------------------------------
+\input{thesis-metadata}
+
+\begin{document}
+
+\frontmatter
+
+% ---------------------------------------------------------------------
+%  Title page
+% ---------------------------------------------------------------------
+\begin{titlepage}
+\begin{center}
+\linespread{1.2}\huge {\bfseries \thesistitle}\\[1.5cm]
+\linespread{1}
+{\Large \thesisauthor}\\[1cm]
+{\large \emph{Supervisors:} \thesissupervisors}\\[1cm]
+\large Submitted in accordance with the requirements for the degree of
+\linebreak \thesisdegree\\[1.5cm]
+
+\includegraphics[width=5cm]{\thesislogo}\\[1cm]
+
+\textit{in the}\\[0.3cm]
+{\LARGE \thesisuniversity}\\[0.3cm]
+{\thesisschool}\\[0.3cm]
+{\monthyear\today}
+\end{center}
+\end{titlepage}
+
+% ---------------------------------------------------------------------
+%  Front matter
+% ---------------------------------------------------------------------
+\input{sections/declaration}
+\input{sections/abstract}
+\input{sections/acknowledgements}
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+% ---------------------------------------------------------------------
+%  Main matter (one \input per chapter)
+% ---------------------------------------------------------------------
+\mainmatter
+
+\input{sections/chapter1/_index}
+\input{sections/chapter2/_index}
+\input{sections/chapter3/_index}
+\input{sections/chapter4/_index}
+\input{sections/chapter5/_index}
+\input{sections/chapter6/_index}
+
+% ---------------------------------------------------------------------
+%  Bibliography. agsm is a Harvard (author-year) style; it works with
+%  natbib. Run bibtex (see README) to build the reference list.
+% ---------------------------------------------------------------------
+\bibliographystyle{agsm}
+\bibliography{references}
+
+% ---------------------------------------------------------------------
+%  Appendices (optional -- delete this block if you don't need them)
+% ---------------------------------------------------------------------
+\begin{appendices}
+\input{sections/appendixA}
+\end{appendices}
+
+\end{document}
