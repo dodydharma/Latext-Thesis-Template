@@ -29,6 +29,27 @@
 \renewcommand{\baselinestretch}{1.4}
 
 % ---------------------------------------------------------------------
+%  Chapter heading label (ITB / Indonesian style). Rename "Chapter" to
+%  "BAB" and number chapters with Roman numerals, e.g. "BAB I".
+%  The Table of Contents and all \ref{} cross-references follow this
+%  automatically, since they read the same chapter counter.
+% ---------------------------------------------------------------------
+\renewcommand{\chaptername}{BAB}
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+% Keep figure and table numbers in Arabic (e.g. "1.1", "2.3") even
+% though the chapter heading uses Roman numerals (BAB I). We use
+% \arabic{chapter} for the prefix instead of \thechapter (now Roman).
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+
+% Indonesian names for the front-matter headings and bibliography.
+\renewcommand{\contentsname}{Daftar Isi}
+\renewcommand{\listfigurename}{Daftar Gambar}
+\renewcommand{\listtablename}{Daftar Tabel}
+\renewcommand{\bibname}{Daftar Pustaka}
+
+% ---------------------------------------------------------------------
 %  Packages
 % ---------------------------------------------------------------------
 \usepackage[T1]{fontenc}          % modern font encoding (better hyphenation)
@@ -61,9 +82,9 @@
 % Show down to subsubsections in the table of contents
 \setcounter{tocdepth}{3}
 
-% Caption styling: bold "Figure"/"Table" label, small italic body text
-\captionsetup[figure]{margin=1.5cm,font=small,labelfont={bf},name={Figure},labelsep=colon,textfont={it}}
-\captionsetup[table]{margin=1.5cm,font=small,labelfont={bf},name={Table},labelsep=colon,textfont={it}}
+% Caption styling: bold "Gambar"/"Tabel" label, small italic body text
+\captionsetup[figure]{margin=1.5cm,font=small,labelfont={bf},name={Gambar},labelsep=colon,textfont={it}}
+\captionsetup[table]{margin=1.5cm,font=small,labelfont={bf},name={Tabel},labelsep=colon,textfont={it}}
 
 % Coloured (rather than boxed) hyperlinks
 \hypersetup{colorlinks=true, linkcolor=black, citecolor=blue, urlcolor=blue}
