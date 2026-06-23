@@ -1,7 +1,7 @@
 # Thesis LaTeX Template
 
 A reusable LaTeX template for a PhD / Master's thesis, adapted from the thesis
-*Neural Network-Based Surrogate Models of Lagrangian Continuum Simulators*
+[*Neural Network-Based Surrogate Models of Lagrangian Continuum Simulators*](https://etheses.whiterose.ac.uk/id/eprint/36532/)
 (Dody Dharma, University of Leeds) and generalised so students can use it for
 their own writing.
 
